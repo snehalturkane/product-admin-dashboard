@@ -179,13 +179,20 @@ function ProductsPageInner() {
       <Navbar />
       <main className="mx-auto max-w-6xl px-4 py-6">
         <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-          <h1 className="text-lg font-semibold text-ink">Products</h1>
+          <div className="flex items-center gap-2">
+  <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-accent/10 text-accent">
+    <svg viewBox="0 0 24 24" fill="none" className="h-4.5 w-4.5">
+      <path d="M4 7h16M4 12h16M4 17h10" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+    </svg>
+  </span>
+  <h1 className="text-lg font-semibold text-ink">Products</h1>
+</div>
           <Link
-            href="/products/new"
-            className="rounded-md bg-accent px-4 py-2 text-sm font-medium text-white hover:bg-accentDark"
-          >
-            Add product
-          </Link>
+  href="/products/new"
+  className="rounded-lg bg-accent px-4 py-2.5 text-sm font-medium text-white shadow-sm transition-all hover:bg-accentDark hover:shadow-md hover:shadow-accent/30"
+>
+  + Add product
+</Link>
         </div>
 
         <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
@@ -209,7 +216,7 @@ function ProductsPageInner() {
           </p>
         )}
 
-        <div className="rounded-lg border border-line bg-white p-4">
+        <div className="rounded-2xl border border-line bg-white p-5 shadow-sm">
           {status === "loading" && <Loader label="Loading products..." />}
 
           {status === "error" && <ErrorState message={errorMessage} onRetry={retry} />}
